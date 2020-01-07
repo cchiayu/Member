@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView nickname;
     private TextView age;
     private TextView gender;
-    private static  final int NNACTIVITY = 110;
+    private static final int NNACTIVITY = 110;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
         nickname = findViewById(R.id.nickname_fill);
         age = findViewById(R.id.age);
         gender = findViewById(R.id.gender);
-        if (TextUtils.isEmpty(nickname.getText().toString())&&TextUtils.isEmpty(age.getText().toString())&&TextUtils.isEmpty(gender.getText().toString())){
+        if (TextUtils.isEmpty(nickname.getText().toString()) && TextUtils.isEmpty(age.getText().toString()) && TextUtils.isEmpty(gender.getText().toString())) {
             Intent intent = new Intent(MainActivity.this, NicknameActivity.class);
-            startActivity(intent,NNACTIVITY);
+           startActivity(intent);
 
         }
 
@@ -37,19 +37,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == NNACTIVITY){
-            if (requestCode == RESULT_OK){
+        if (requestCode == NNACTIVITY) {
+            if (requestCode == RESULT_OK) {
                 finish();
-            }else{
-               String nickname =getSharedPreferences("test",MODE_PRIVATE)
-                        .getString(nickname," ");
-               SharedPreferences age = getSharedPreferences("test",MODE_PRIVATE);
-                           .getString(age,"");
-                String gender = getSharedPreferences("test",MODE_PRIVATE);
-                           .getString("GENDER","");
-                nickname.setText(nickname);
-                age.setText(age);
-                gender.setText(gender);
+            } else {
+                String nickname = getSharedPreferences("test", MODE_PRIVATE)
+                        .getString("nickname", " ");
+             //  SharedPreferences age = getSharedPreferences("test", MODE_PRIVATE);
+                      //   .getString("age", " ");
+             //   String gender = getSharedPreferences("test", MODE_PRIVATE);
+                //         .getString("GENDER", "");
+              //nickname.setText(nickname);
+              //age.setText(age);
+              // gender.setText(gender);
             }
         }
     }
